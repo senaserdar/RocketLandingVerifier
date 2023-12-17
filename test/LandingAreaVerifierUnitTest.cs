@@ -51,7 +51,7 @@ public class LandingAreaVerifierUnitTest
     public static IEnumerable<object[]> CollisionTestCases()
     {
         yield return new object[] { 7, 8 }; // Birinci roket 7, 7 ye inmişti Çarpışma bekleniyor
-        yield return new object[] { 2, 7 }; // Birinci roket 7, 7 ye inmişti Çarpışma bekleniyor
+        yield return new object[] { 8, 7 }; // Birinci roket 7, 7 ye inmişti Çarpışma bekleniyor
         yield return new object[] { 7, 7 }; // Birinci roket 7, 7 ye inmişti Çarpışma bekleniyor
     }
 

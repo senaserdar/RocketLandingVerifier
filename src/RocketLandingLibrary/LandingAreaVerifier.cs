@@ -10,6 +10,8 @@ public class LandingAreaVerifier
     private int[,] _landingArea;
     private int _platformStartX;
     private int _platformStartY;
+    private int _platformEndX;
+    private int _platformEndY;
     private HashSet<(int, int)> _previousLandings = new();
 
     public LandingAreaVerifier(LandingAreaVerifierInput input, int[,] landingArea)
@@ -32,7 +34,9 @@ public class LandingAreaVerifier
     private void InitializeLandingAreaStart(LandingAreaVerifierInput input)
     {
         _platformStartX = input.PlatformStartX;
-        _platformStartY = input.PlatformStartY;
+        _platformStartY = input.PlatformStartY;  
+        _platformEndX = input.PlatformStartX + input.PlatformWidth;
+        _platformEndY = input.PlatformStartY + input.PlatformLength;
     }
 
     public string VerifyLanding(int x, int y)
@@ -47,7 +51,7 @@ public class LandingAreaVerifier
 
     private bool IsOutOfPlatform(int x, int y)
     {
-        return x >= _landingArea.GetLength(0) || y >= _landingArea.GetLength(1) || x < 0 || y < 0;
+        return _platformStartX > x || x > _platformEndX || _platformStartY > y || y > _platformEndY;
     }
 
     private bool IsCollision(int x, int y)
