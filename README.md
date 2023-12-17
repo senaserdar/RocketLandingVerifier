@@ -5,9 +5,13 @@ Bu proje, roketlerin belirli bir iniş alanına güvenli bir şekilde inip ineme
 Metodlar ve İşlevler
 
 IsOutOfPlatform: Belirtilen koordinatların platform alanının dışında olup olmadığını kontrol eder.
+
 IsCollision: Belirtilen koordinatlarda bir çarpışma olup olmadığını kontrol eder.
+
 IsLandingPermitted: Belirtilen koordinatlara roketin inişine izin verilip verilmediğini kontrol eder.
+
 IsOneUnitDistance: Belirtilen koordinatlara iniş yapmadan önce diğer roketlerle minimum birimlik mesafe olup olmadığını kontrol eder.
+
 MarkArea: İniş yapılacak koordinatları işaretler.
 
 Kurulum
