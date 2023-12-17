@@ -1,8 +1,8 @@
-Rocket Landing Verifier
+##Rocket Landing Verifier
 
 Bu proje, roketlerin belirli bir iniş alanına güvenli bir şekilde inip inemediğini kontrol etmek için kullanılan bir C# sınıf kütüphanesini içerir. Kodun güvenirliliği unitTestler ile arttırılmıştır.
 
-Metodlar ve İşlevler
+###Metodlar ve İşlevler
 
 IsOutOfPlatform: Belirtilen koordinatların platform alanının dışında olup olmadığını kontrol eder.
 
@@ -14,7 +14,7 @@ IsOneUnitDistance: Belirtilen koordinatlara iniş yapmadan önce diğer roketler
 
 MarkArea: İniş yapılacak koordinatları işaretler.
 
-Kurulum
+###Kurulum
 Bu kütüphaneyi kullanmak için:
 
 Bu projeyi derleyerek DLL dosyasını oluşturun.
