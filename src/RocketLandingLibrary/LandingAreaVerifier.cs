@@ -7,31 +7,32 @@ using System.Collections.Generic;
 
 public class LandingAreaVerifier
 {
-    private int[,] landingArea;
-    private int platformStartX;
-    private int platformStartY;
-    private HashSet<(int, int)> previousLandings = new();
+    private int[,] _landingArea;
+    private int _platformStartX;
+    private int _platformStartY;
+    private HashSet<(int, int)> _previousLandings = new();
 
-    public LandingAreaVerifier(LandingAreaVerifierInput input)
+    public LandingAreaVerifier(LandingAreaVerifierInput input, int[,] landingArea)
     {
         if (input.PlatformStartX + input.PlatformWidth > input.LandingAreaWidth || input.PlatformStartY + input.PlatformLength > input.LandingAreaLength)
         {
             throw new ArgumentException("Landing platform cannot be larger than or exceed the landing area.");
         }
 
+        _landingArea = landingArea;
         InitializeLandingArea(input);
         InitializeLandingAreaStart(input);
     }
 
     private void InitializeLandingArea(LandingAreaVerifierInput input)
     {
-        landingArea = new int[input.LandingAreaWidth, input.LandingAreaLength];
+        _landingArea = new int[input.LandingAreaWidth, input.LandingAreaLength];
     }
 
     private void InitializeLandingAreaStart(LandingAreaVerifierInput input)
     {
-        platformStartX = input.PlatformStartX;
-        platformStartY = input.PlatformStartY;
+        _platformStartX = input.PlatformStartX;
+        _platformStartY = input.PlatformStartY;
     }
 
     public string VerifyLanding(int x, int y)
@@ -46,25 +47,25 @@ public class LandingAreaVerifier
 
     private bool IsOutOfPlatform(int x, int y)
     {
-        return x >= landingArea.GetLength(0) || y >= landingArea.GetLength(1) || x < 0 || y < 0;
+        return x >= _landingArea.GetLength(0) || y >= _landingArea.GetLength(1) || x < 0 || y < 0;
     }
 
     private bool IsCollision(int x, int y)
     {
-        return landingArea[x, y] == 1 || previousLandings.Contains((x, y));
+        return _landingArea[x, y] == 1 || _previousLandings.Contains((x, y));
     }
 
     private bool IsLandingPermitted(int x, int y)
     {
-        return platformStartX <= x && x < platformStartX + landingArea.GetLength(0) &&
-               platformStartY <= y && y < platformStartY + landingArea.GetLength(1);
+        return _platformStartX <= x && x < _platformStartX + _landingArea.GetLength(0) &&
+               _platformStartY <= y && y < _platformStartY + _landingArea.GetLength(1);
     }
 
     private bool IsOneUnitDistance(int x, int y)
     {
         foreach (var (adjX, adjY) in GetAdjacentPositions(x, y))
         {
-            if (previousLandings.Contains((adjX, adjY)))
+            if (_previousLandings.Contains((adjX, adjY)))
             {
                 return false;
             }
@@ -75,8 +76,8 @@ public class LandingAreaVerifier
 
     private void MarkArea(int x, int y)
     {
-        landingArea[x, y] = 1;
-        previousLandings.Add((x, y));
+        _landingArea[x, y] = 1;
+        _previousLandings.Add((x, y));
     }
 
     private IEnumerable<(int, int)> GetAdjacentPositions(int x, int y)
