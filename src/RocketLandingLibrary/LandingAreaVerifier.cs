@@ -43,7 +43,7 @@ public class LandingAreaVerifier
     {
         if (IsOutOfPlatform(x, y))
             return "Out of platform"; //Platform dışı 
-        if (IsCollision(x, y) || !IsLandingPermitted(x, y) || !IsOneUnitDistance(x, y))
+        if (IsCollision(x, y) || !IsOneUnitDistance(x, y))
             return "Collision"; //Çarpışma
         MarkArea(x, y);
         return "Landing permitted"; // İniş için uygun
@@ -58,13 +58,7 @@ public class LandingAreaVerifier
     {
         return _landingArea[x, y] == 1 || _previousLandings.Contains((x, y));
     }
-
-    private bool IsLandingPermitted(int x, int y)
-    {
-        return _platformStartX <= x && x < _platformStartX + _landingArea.GetLength(0) &&
-               _platformStartY <= y && y < _platformStartY + _landingArea.GetLength(1);
-    }
-
+    
     private bool IsOneUnitDistance(int x, int y)
     {
         foreach (var (adjX, adjY) in GetAdjacentPositions(x, y))
