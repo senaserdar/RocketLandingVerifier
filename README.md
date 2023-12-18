@@ -16,7 +16,7 @@ MarkArea: İniş yapılacak koordinatları işaretler.
 
 Bu kütüphaneyi kullanmak için:
 
-Bu projeyi derleyerek DLL dosyasını oluşturupkullanmak istediğiniz C# projenize oluşturulan DLL dosyasını referans olarak ekleyin.
+Bu projeyi derleyerek DLL dosyasını oluşturup kullanmak istediğiniz C# projenize oluşturulan DLL dosyasını referans olarak ekleyin.
 LandingAreaVerifier sınıfını kullanarak roket inişlerini kontrol edebilirsiniz.
 
 
