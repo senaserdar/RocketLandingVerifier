@@ -8,8 +8,6 @@ IsOutOfPlatform: Belirtilen koordinatların platform alanının dışında olup 
 
 IsCollision: Belirtilen koordinatlarda daha önce rocket inmiş mi kontrol eder.
 
-IsLandingPermitted: Belirtilen koordinatlara roketin inişine izin verilip verilmediğini kontrol eder.
-
 IsOneUnitDistance: Belirtilen koordinatlara iniş yapmadan önce diğer roketlerle minimum 1 birimlik mesafe olup olmadığını kontrol eder.
 
 MarkArea: İniş yapılacak koordinatları işaretler.
