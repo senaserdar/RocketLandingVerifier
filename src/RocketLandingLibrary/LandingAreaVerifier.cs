@@ -23,7 +23,7 @@ public class LandingAreaVerifier
 
         _landingArea = landingArea;
         InitializeLandingArea(input);
-        InitializeLandingAreaStart(input);
+        InitializeLandingPlatformArea(input);
     }
 
     private void InitializeLandingArea(LandingAreaVerifierInput input)
@@ -31,7 +31,7 @@ public class LandingAreaVerifier
         _landingArea = new int[input.LandingAreaWidth, input.LandingAreaLength];
     }
 
-    private void InitializeLandingAreaStart(LandingAreaVerifierInput input)
+    private void InitializeLandingPlatformArea(LandingAreaVerifierInput input)
     {
         _platformStartX = input.PlatformStartX;
         _platformStartY = input.PlatformStartY;  
